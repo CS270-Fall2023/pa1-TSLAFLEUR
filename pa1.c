@@ -22,10 +22,10 @@
  */
 int getTokens(char *s, char **args[]){
     int stringStart=0,stringEnd=0,startOfNewToken=1,numberOfTokens=0;
-    *args=malloc(strlen(s)/2);//reserve maximum possible number of strings in array
+    *args=malloc((strlen(s)+1)/2);//reserve maximum possible number of strings in array
     for(int i=0;i<strlen(s);i++){
         //if current char is not space or null character and we expect a new token
-        if((s[i]!=' '&&s[i]!='\0')&&startOfNewToken==1){
+        if(s[i]!=' '&&s[i]!='\0'&&startOfNewToken==1){
             startOfNewToken=0;
             stringStart=i;
             numberOfTokens++;
@@ -36,9 +36,9 @@ int getTokens(char *s, char **args[]){
             stringEnd=i;
             (*args)[numberOfTokens-1]=malloc(stringEnd-stringStart+1);//allocate memory in array for current token
             strncpy((*args)[numberOfTokens-1],s+stringStart,stringEnd-stringStart);//copy current token into array
-            (*args)[numberOfTokens-1][stringEnd-stringStart]='\0';//add null terminator to string in array
         }
     }
+    (*args)[numberOfTokens]=NULL;
     if(numberOfTokens>0){
         return numberOfTokens;
     }else{return -1;};

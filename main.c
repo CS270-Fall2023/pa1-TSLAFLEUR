@@ -24,7 +24,7 @@ int main(){
 
     printf("Number of tokens: %i\n",numOfToken);
     for(int i=0;i<numOfToken;i++){//print each token
-        printf("token %i: %s\n",i+1,(tokenArray)[i]);
+        printf("token %i: %s\n",i+1,tokenArray[i]);
     }
 
     return 0;

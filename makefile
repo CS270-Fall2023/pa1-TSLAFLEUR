@@ -8,8 +8,8 @@ clean:
 	rm -f pa1 *.o
 
 pa1: pa1.o main.o
-	$(CC) pa1.o main.o -o pa1
+	$(CC) $< main.o -o $@
 pa1.o: pa1.c pa1.h
-	$(CC) $(CFLAGS) pa1.c
+	$(CC) $(CFLAGS) $<
 main.o: main.c pa1.h
-	$(CC) $(CFLAGS) main.c
+	$(CC) $(CFLAGS) $<

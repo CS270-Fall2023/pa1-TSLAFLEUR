@@ -38,6 +38,8 @@
 *.x86_64
 *.hex
 pa1
+*.orig.c
+*.orig.h
 
 # Debug files
 *.dSYM/
